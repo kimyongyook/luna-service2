@@ -1,3 +1,5 @@
+///////////////////test/////////////////
+//////////////////today example////////////
 #include <memory>
 #include <luna-service2/lunaservice.hpp>
 #include <pbnjson.hpp>
@@ -6,7 +8,7 @@
 using std::string;
 
 class TimeService : public LS::Handle {
-private:
+private: ///private
 	const static int TIMEOUT = 1000;
 	using MainLoopT = std::unique_ptr<GMainLoop, void(*)(GMainLoop*)>;
 
@@ -14,7 +16,7 @@ private:
 	MainLoopT mainLoopPtr = { g_main_loop_new(nullptr, false), g_main_loop_unref };
 	int totalCallCount;
 
-public:
+public: ///public
 	TimeService() :
 	    LS::Handle(LS::registerService(SERVICE_NAME)),
 	    totalCallCount(0) {
@@ -217,3 +219,4 @@ int main(int argc, char ** argv) {
 	}
 	return 0;
 }
+///////////end of this code///////////////
